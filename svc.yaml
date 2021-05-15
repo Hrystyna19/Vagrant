@@ -1,0 +1,56 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2021-05-15T19:54:23Z"
+    labels:
+      component: apiserver
+      provider: kubernetes
+    name: kubernetes
+    namespace: default
+    resourceVersion: "46"
+    selfLink: /api/v1/namespaces/default/services/kubernetes
+    uid: 1b483c5a-1faf-41ec-b6d4-16701c2f2856
+  spec:
+    clusterIP: 10.0.0.1
+    ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 443
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2021-05-15T20:01:40Z"
+    finalizers:
+    - service.kubernetes.io/load-balancer-cleanup
+    name: service
+    namespace: default
+    resourceVersion: "1295"
+    selfLink: /api/v1/namespaces/default/services/service
+    uid: 7975decd-3a5d-43a0-898d-724548b170e0
+  spec:
+    clusterIP: 10.0.174.38
+    externalTrafficPolicy: Cluster
+    ports:
+    - nodePort: 30201
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    selector:
+      app: nginx
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 20.73.199.10
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
